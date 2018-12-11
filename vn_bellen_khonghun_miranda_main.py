@@ -2495,6 +2495,2773 @@ class window(object):
             self.clock.tick(60)
 
     #DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f DONT FORGET 11f 
+    def scene11d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I’m Kimiko. What’s your name?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi3_happy2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("I’m Hiroshi")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi3_happy2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh hello! Nice meeting you, I guess…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi3_happy2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Do you wanna sit down with me and have a drink?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi3_happy2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 4:
+                decision = decisionbox("What will you do next?")
+                hiroshi = character_decision("images/characters/Hiroshi (Moderator)/Hiroshi3_happy2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("SIT DOWN AND HAVE A DRINK WITH HIROSHI", [35,200], self.scene11d_a, 1, player)
+                self.decision_menu("SAY YOU HAVE TO GO",[35,240], self.scene11d_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11d_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene12d(0, player)
+            elif count == 2:
+                self.scene11f(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Hiroshi")
+                instruction = textbox("You shouldn’t be here. It’s dangerous")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("Uhh… (To herself) This is getting pretty strange. I don’t know if I should be scared or what?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 2:
+                decision = decisionbox("What will you do next?")
+                hiroshi = character_decision("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("ASK ABOUT WHAT HE MEANS", [35,200], self.scene12d_a, 1, player)
+                self.decision_menu("LEAVE THE TABLE",[35,240], self.scene12d_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12d_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene13d(0, player)
+            elif count == 2:
+                self.scene11f(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11f(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I have to go now. I’m sorry. ")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("Oh okay…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 2:
+                decision = decisionbox("Where will you go now?")
+                hiroshi = character_decision("images/characters/Hiroshi (Moderator)/Hiroshi2_troubled2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("HOME", [35,200], self.scene11f_a, 1, player)
+                self.decision_menu("JUST AWAY FROM HERE",[35,240], self.scene11f_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11f_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene10d2(0, player)
+            elif count == 2:
+                self.scene11e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene10d2(self, count, player):
+        bg = background("images/backgrounds/outside_day.png") #tentative bg 
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Hmm… I guess to some extent my dad was right. I should not have gone out. There isn’t even anything to see. Should I still try to make the most out of this trip?")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What will you do next?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("NO… SO TAKE SHORT ROUTE", [35,200], self.scene10d2_a, 1, player)
+                self.decision_menu("YES… MAYBE… SO TAKE THE LONG ROUTE",[35,240], self.scene10d2_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene10d2_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene11d2(0, player)
+            elif count == 2:
+                self.scene11e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11d2(self, count, player):
+        bg = background("images/backgrounds/outside_day.png") #tentative bg 
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Hmmm… It seems like there’s this unsettling feeling at the back of my mind… I wonder how I should feel right now?")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What are you feeling right now?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("WORRIED", [35,200], self.scene11d2_a, 1, player)
+                self.decision_menu("CAREFREE BECAUSE DAD LOVES ME",[35,240], self.scene11d2_a, 1, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11d2_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene12d2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12d2(self, count, player):
+        bg = background("images/backgrounds/street day.png") #tentative bg 
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox(" I guess it doesn’t matter what I feel… All that matters is how I deal with all this…")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What are you going to do now?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("GET SOMETHING FOR REMEMBRANCE", [35,200], self.scene12d2_a, 1, player)
+                self.decision_menu("HURRY HOME SO DAD WON’T FIND OUT",[35,240], self.scene12d2_a, 1, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12d2_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene13d2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13d2(self, count, player):
+        bg = background("images/backgrounds/house out day.png") #tentative bg 
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I guess that is what I should do so this trip won’t be so bad… Hmm… Oh! I’m already near home… There’s dad!! Guess I should hurry and enter from the back so dad won’t see me.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                self.scene14d3(0,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene14d3(self, count, player):
+        bg = background("images/backgrounds/stairs day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh hi dad! You’re back! How was everything!!")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Tomiichi")
+                instruction = textbox("Good, good! And you, how did you spend your time?")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("I didn’t do much… As always.")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Tomiichi")
+                instruction = textbox("You okay? You look like something is bothering you…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh, It’s nothing…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Tomiichi")
+                instruction = textbox("Are you sure? You know you can talk to me about anything…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("Uh well…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 7:
+                decision = decisionbox("What are you going to say?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("NOTHING", [35,200], self.scene14d3_a, 1, player)
+                self.decision_menu("ASK ABOUT THE OUTSIDE WORLD",[35,240], self.scene14d3_a, 1, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene14d3_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene15d21(0, player)
+            if count == 2:
+                self.scene15d22(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15d21(self, count, player):
+        bg = background("images/backgrounds/stairs day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh it’s nothing… Really I’m fine.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Tomiichi")
+                instruction = textbox("Okay, if you say so…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Yea. Nothing to worry about.")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                self.screen.fill((0,0,0))
+            if count >= 4:
+                self.scene15z(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15d22(self, count, player):
+        bg = background("images/backgrounds/stairs day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh well… I just wanted to ask…")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Tomiichi")
+                instruction = textbox("What is it?")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("What is it like in the outside world? ")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Tomiichi")
+                instruction = textbox("Why do you want to know so bad? Are you planning anything bad?")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Of course not dad… You know, ten years is just A LOT.")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Tomiichi")
+                instruction = textbox("Well yea, I get your point, but honey, you’re really not missing out on anything.")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("If you say so…")
+                father = character("images/characters/Tomiichi/Tomiichi4_smirk1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                self.screen.fill((0,0,0))
+            if count >= 8:
+                self.scene15z(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Care to explain what you meant?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_smirk2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("You first!! What do you wanna talk about? I feel like there’s something on your mind after so long…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_smirk2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("That’s weird. What does he even mean by so long? Does he know about my 10 years?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_smirk2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 3:
+                decision = decisionbox("What will you talk about?")
+                hiroshi = character_decision("images/characters/Hiroshi (Moderator)/Hiroshi2_smirk2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("ASK ABOUT HIROSHI INSTEAD", [35,200], self.scene13d_a, 1, player)
+                self.decision_menu("TALK ABOUT ACCIDENT",[35,240], self.scene13d_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13d_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene14d(0, player)
+            elif count == 2:
+                self.scene14d2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene14d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I just wanna get to know as much people as I can really…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("Oh yea? Well I think 10 years is just too long… The world wants to hear more about you, Kimiko.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Huh? Ten years of what?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Being trapped at home?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("How did you know about that?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Hiroshi")
+                instruction = textbox("Didn’t you mention it earlier?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("No…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Hiroshi")
+                instruction = textbox("I swear I think you did…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                self.screen.fill((0,0,0))
+            if count >= 9:    
+                self.scene15d(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene14d2(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Well I was in accident before and my life has changed dramatically since then…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("Well yea… A lot can change in 10 years…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Huh? Ten years? What’s with 10 years?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Oh ten years at home?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("How do you know that?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Hiroshi")
+                instruction = textbox("You mention it earlier...")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("No I did not…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Hiroshi")
+                instruction = textbox("I swear I think you did…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_confused2.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                self.screen.fill((0,0,0))
+            if count >= 9:    
+                self.scene15d(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("You’re so strange… How do you know about all that? Are you a stalker?!")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("No!! I’m not… I promise!!")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Then tell me the truth!")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Okay… Are you sure?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Yes I am sure.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Hiroshi")
+                instruction = textbox("Okay, so your dad makes me watch over his creation so that it will be a safe place…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("By creation, you mean me?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Hiroshi")
+                instruction = textbox("No… This game, Kimiko.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                name = namebox("Kimiko")
+                instruction = textbox("Huh? What game?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 9:
+                name = namebox("Hiroshi")
+                instruction = textbox("This whole thing… This is all just a game.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 10:
+                name = namebox("Kimiko")
+                instruction = textbox("What do you mean?!")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 11:
+                name = namebox("Hiroshi")
+                instruction = textbox("I think I understand what is happening now…You haven’t been allowed out of the house for 10 years now right?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 12:
+                name = namebox("Kimiko")
+                instruction = textbox("Yes.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 13:
+                name = namebox("Hiroshi")
+                instruction = textbox("This game is about 10 years old. And 10 years ago, insert name of dad encountered a really bad accident with his family and it was on the news that someone died… Maybe that’s you… He could have possibly uploaded you onto the game and maybe that’s why he didn’t let you leave the house...")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 14:
+                name = namebox("Kimiko")
+                instruction = textbox("This can’t be happening… What should I do, insert name of moderator.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 15:
+                name = namebox("Hiroshi")
+                instruction = textbox("Well you have two options. We can go yo your dad and tell him everything because he might be able to fix this or we can just find some place where we can stay if you’re too overwhelmed with everything I just told you…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 16:    
+                decision = decisionbox("What will you choose to do?")
+                hiroshi = character_decision("images/characters/Hiroshi (Moderator)/Hiroshi2_shocked5.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("STAY WITH HIROSHI", [35,200], self.scene15d_a, 1, player)
+                if player.persuasion == 5 and player.willpower == 5:
+                    self.decision_menu("GO TO DAD",[35,240], self.scene15d_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15d_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene16d(0, player)
+            elif count == 2:
+                self.scene16d2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene16d(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I think I’d like to stay with you…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("You sure?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Yea, I think you told me more truths in the past hour than my dad has in 10 years…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Okay if you say so… We gotta go then, your dad might notice that something is off…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Yea, okay…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 5:
+                self.scene17d(0 ,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene17d(self, count, player):
+        bg = None
+        pygame.mixer.music.fadeout(1000)
+        #count = 1
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                bg = background("images/backgrounds/weird area.png")
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Hiroshi")
+                instruction = textbox("We’re here in the Middle. This is sort of the safe space of this game. Only the employees know about this place…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_happy8.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("What if the other employees of my dad recognize me?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_happy8.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Hiroshi")
+                instruction = textbox("They won’t! Believe me when I say no one knows about you…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_happy8.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Kimiko")
+                instruction = textbox("But how about exploring? I wanna get to see what this world is like?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_happy8.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Hiroshi")
+                instruction = textbox("You can do more of that here. Promise. I’ll be with you every step of the way")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_happy8.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 5:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene16d2(self, count, player): #credit
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count <= 3:
+                self.screen.fill((0,0,0))
+                bg = background("images/backgrounds/cafe in day.png")
+                self.screen.blit(bg.image,bg.rect)
+            if count >= 4:
+                bg = background("images/backgrounds/stairs day.png")
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I think I’ll just go back to my dad…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Hiroshi")
+                instruction = textbox("Okay, if you say so. Do you want me to accompany you back home?")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("No thank you. I’ll manage by myself, as always")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Hiroshi")
+                instruction = textbox("Okay, you must get going then…")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi2_poker3.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Dad, are you back?")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                name = namebox("Tomiichi")
+                instruction = textbox("Yes, sweetie? What is it?")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("I met Hiroshi, one of your staff…")
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                name = namebox("Tomiichi")
+                instruction = textbox("YOU WENT OUT?!")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                name = namebox("Kimiko")
+                instruction = textbox("Well yea, but I think that’s besides the point right now. I can’t believe you’d do this to me…")
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 9:
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                name = namebox("Tomiichi")
+                instruction = textbox("I had to honey, the accident 10 years ago killed you.")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 10:
+                name = namebox("Kimiko")
+                instruction = textbox("Well that’s what I should be… DEAD. ")
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 11:
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                name = namebox("Tomiichi")
+                instruction = textbox("You don’t understand-")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 12:
+                name = namebox("Kimiko")
+                instruction = textbox("I understand everything pretty clearly! I am living a stolen life! Kill me now! ")
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 13:
+                father = character("images/characters/Tomiichi/Tomiichi3_angry3.png")
+                name = namebox("Tomiichi")
+                instruction = textbox("Okay, if that’s what you want…")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 14:
+                self.screen.fill((0,0,0)) 
+            if count >= 15:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
+        pygame.quit()
+        quit()
+    
+    #KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE KATSUO ROUTE 
+    def scene11e(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            self.button_menu("SHOP", [400,600])
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Hmmm… This all seems kinda creepy… There’s something that’s not sitting well with me about this place. How should I even act?")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What will you do?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("WALK SLOW ", [35,200], self.scene11e_a, 1, player)
+                self.decision_menu("WALK FAST",[35,240], self.scene11e_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene11e_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene12e(0, player)
+            elif count == 2:
+                self.scene12f(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12e(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I guess I should just make the most out of this whole thing.. I’m already outside anyway. Oof! *Bump sounds*")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                self.scene13e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13e(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Random Person")
+                instruction = textbox("Ouch!! Watch where you’re going.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_angry4.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh! I didn’t mean it!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_angry4.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Random Person")
+                instruction = textbox("Yea. Whatever")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_angry4.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Kimiko")
+                instruction = textbox("(to herself) Gosh I feel bad… What should I do?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_angry4.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 4:
+                decision = decisionbox("What will you do?")
+                katsuo = character_decision("images/characters/Katsuo (Glitched NPC)/Katsuo1_angry4.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("APOLOGIZE", [35,200], self.scene13e_a, 1, player)
+                self.decision_menu("WALK AWAY",[35,240], self.scene13e_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13e_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene14e(0, player)
+            elif count == 2:
+                self.scene12f(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene14e(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("My goodness! I’m sorry! I really should be more aware. Are you hurt?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Random Person")
+                instruction = textbox("Oh, it’s fine. I should’ve given you a enough space.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("I wanna make it up to you. How about we go get a drink?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Random Person")
+                instruction = textbox("It’s fine! It’s no big deal.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("I insist.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Random Person")
+                instruction = textbox("Okay. If you say so…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 6:
+                self.scene15e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15e(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Random Person")
+                instruction = textbox("So, what brings you here? I don’t think I’ve ever seen you before…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("Well, I’m not really from around here…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Random Person")
+                instruction = textbox("Let’s start with your name.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh, I’m Kimiko. What’s yours?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Katsuo")
+                instruction = textbox("The name’s Katsuo. So tell me more about yourself…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Kimiko")
+                instruction = textbox("Well yea as I said, I’m not from around here…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Katsuo")
+                instruction = textbox("Yea, but I think there’s more about you than that. You seem to be hiding something interesting…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Kimiko")
+                instruction = textbox("Well…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 8:
+                decision = decisionbox("What will you talk about?")
+                katsuo = character_decision("images/characters/Katsuo (Glitched NPC)/Katsuo6_smirk2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("TALK ABOUT YOUR ACCIDENT", [35,200], self.scene15e_a, 1, player)
+                self.decision_menu("SHIFT THE TOPIC OF THE CONVERSATION",[35,240], self.scene15e_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+        pygame.quit()
+        quit()
+
+    def scene16e(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Well if what you mean by interesting is problematic… Than yes! When I was a kid, I got into an accident and after that my dad never let me out of the house…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("Oh my, but… Are you sure that’s it?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("What? What do you mean? That’s already pretty interesting, isn’t it?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Katsuo")
+                instruction = textbox("Well, there seems to be something else…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                self.screen.fill((0,0,0))
+            if count >= 5:
+               self.scene17e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene16e2(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Really… There’s nothing to know. This whole place seems more interesting than anything else…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_upset1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("Uhh… Not really…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo1_upset1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                self.screen.fill((0,0,0))
+            if count >= 3:
+               self.scene17e(0,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene17e(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("WHAA?! What happened? What was that?!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("Nothing…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh come on… I told you about my story. Tell me yours…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Katsuo")
+                instruction = textbox("Well you see… I’m a glitch…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("What do you mean by that?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Katsuo")
+                instruction = textbox("I’m not supposed to exist anymore…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("That’s insane! Are you going through something?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Katsuo")
+                instruction = textbox("Uh no… I’m a glitch.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                name = namebox("Kimiko")
+                instruction = textbox("Glitch? What’s that?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 9:
+                name = namebox("Katsuo")
+                instruction = textbox("Huh? Why don’t you know what that is? The glitch is everywhere in this game?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 10:
+                name = namebox("Kimiko")
+                instruction = textbox("Game? Is that some kind of metaphor?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_angry3.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 11:
+                self.screen.fill((0,0,0))
+            if count >= 12:
+               self.scene18e(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene18e(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("OH NO!?! What is happening to me?!!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("You got what I got, the glitch.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("I DON’T EVEN KNOW WHAT THAT IS?!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Katsuo")
+                instruction = textbox("Same as what I said earlier. We’re in a game. The game is called Xin. It’s like a virtual reality world where you get to live a life where you can do whatever you want to do and meet other people. The game was created by Tomiichi.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Huh?! But but that’s my dad?!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Katsuo")
+                instruction = textbox("Have you seen your dad here recently?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("Uh yea, But he left for a business trip recently…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Katsuo")
+                instruction = textbox("Well your dad can fix this… Unless…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                name = namebox("Kimiko")
+                instruction = textbox("Unless what?!?!")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 9:
+                name = namebox("Katsuo")
+                instruction = textbox("Well, since I have the glitch I have been saving everything in this game that has acquired the glitch and created my own world.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 10:
+                name = namebox("Kimiko")
+                instruction = textbox("That’s insane… What happens if I go to my dad instead?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 11:
+                name = namebox("Katsuo")
+                instruction = textbox("Well we don’t know what he might do…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 12:
+                decision = decisionbox("What will you do?")
+                katsuo = character_decision("images/characters/Katsuo (Glitched NPC)/Katsuo3_poker1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(decision.image, decision.rect)
+                if player.courage == 5 and player.optimism == 5:
+                    self.decision_menu("GO TO THE GLITCHED WORLD", [35,200], self.scene18e_a, 1, player)
+                self.decision_menu("GO TO DAD AND HAVE HIM FIX EVERYTHING",[35,240], self.scene18e_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene18e_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene19e(0,player)
+            elif count == 2:
+                self.scene19e2(0,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene19e(self, count, player): #credit
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count <= 4:
+                self.screen.blit(bg.image,bg.rect)
+            if count >= 5:
+                bg = background("images/backgrounds/maxresdefault.png")
+                self.screen.blit(bg.image, bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I can’t believe everything is just a game… This is crazy. Take me to the world you built. I’d rather spend my days with you.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("But, what if something bad happens to you?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("I trust you more than anybody else right now…")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Katsuo")
+                instruction = textbox(" Are you sure about this?")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("As sure as I’ll ever be.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Katsuo")
+                instruction = textbox("Here we are. It’s not much, but I’m willing to share everything with you.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("That’s more than enough.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo6_angry2.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 7:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene19e2(self, count, player):
+        bg = background("images/backgrounds/cafe in day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count <= 3:
+                bg = background("images/backgrounds/cafe in day.png")
+                self.screen.blit(bg.image,bg.rect)
+            if count >= 4:
+                bg = background("images/backgrounds/house out day.png")
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I guess I’m going to go to my dad and have him right all these wrongs.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_tired1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Katsuo")
+                instruction = textbox("If you think this is the right choice then go ahead.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_tired1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("Thank you for telling me about your world. I better get going.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_tired1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Katsuo")
+                instruction = textbox("Yea okay.")
+                katsuo = character("images/characters/Katsuo (Glitched NPC)/Katsuo2_tired1.png")
+                self.screen.blit(katsuo.image, katsuo.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh look, perfect, dad is just arriving. I better hurry inside.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 5:
+                self.scene20e2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene20e2(self, count, player):
+        bg = background("images/backgrounds/sala day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                bg = background("images/backgrounds/sala day.png")
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Dad! I need your help.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Tomiichi")
+                instruction = textbox("What is it? Oh no!")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("What’s wrong?")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Tomiichi")
+                instruction = textbox("You’ve got the glitch.")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("Exactly!! Help me get rid of it please.")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Tomiichi")
+                instruction = textbox("I told you that you are not allowed to leave this house. Why did you disobey me?")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("I don’t know what got into me. I’m so sorry.")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Tomiichi")
+                instruction = textbox("Well, you’re going to get consequences for this.")
+                father = character("images/characters/Tomiichi/Tomiichi1_upset4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                self.screen.fill((0,0,0))
+            if count >= 9:
+                self.scene21e2(0,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene21e2(self, count, player): #credit
+        bg = background("images/backgrounds/bedroom_night.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                bg = background("images/backgrounds/bedroom_night.png")
+                self.screen.blit(bg.image,bg.rect)
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Uhh... What happened? I feel like I slept for the longest time. My head really hurts…")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Tomiichi")
+                instruction = textbox("You got into an accident sweetie. You almost died.")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("What?! Where am I?")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Tomiichi")
+                instruction = textbox("We moved to some place safe. What’s the last thing you remember, sweetie?")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("I remember the sound of an ambulance and you telling me that everything’s going to be okay and that you’ll take care of me.")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Tomiichi")
+                instruction = textbox("Well that was 10 years ago sweetie.")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Kimiko")
+                instruction = textbox("What happened during all those 10 years?")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                name = namebox("Tomiichi")
+                instruction = textbox("It doesn’t matter anymore. All that matters is your safe now.")
+                father = character("images/characters/Tomiichi/Tomiichi3_upset1.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 8:
+                self.screen.fill((0,0,0))
+            if count >= 9:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15e_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene16e(0, player)
+            elif count == 2:
+                self.scene16e2(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12f(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.fill((0,0,0))
+                bg = background("images/backgrounds/outside_day.png")#tentative bg
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Hmmm… I can’t help but think about what dad will think about this whole situation… Even I don’t know what to think.")
+                hiroshi = character("images/characters/Hiroshi (Moderator)/Hiroshi1_happy1.png")
+                self.screen.blit(hiroshi.image, hiroshi.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What are you feeling right now?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("WORRIED THAT DAD MIGHT GET MAD", [35,200], self.scene12f_a, 1)
+                self.decision_menu("RELAX BECAUSE DAD WILL UNDERSTAND",[35,240], self.scene12f_a, 1)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene12f_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene13f(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13f(self, count, player):
+        bg = background("images/backgrounds/street day.png")#tentative bg
+        pygame.mixer.music.fadeout(1000)
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count == 0:
+                self.screen.fill((0,0,0))
+                bg = background("images/backgrounds/outside_day.png")#tentative bg
+                self.screen.blit(bg.image,bg.rect)
+            if count >= 1:
+                bg = background("images/backgrounds/house.png")
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+
+            #character, namebox, textbox in order
+
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I guess it doesn’t matter. This is all so unbelievable. I don’t know what to do with myself anymore. I guess to find out I should just head home.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh no!! Dad’s home. I don’t know what to do. I don’t want anything bad to happen to me and my relationship with dad. He’s the only one I’ve got left.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 2:
+                decision = decisionbox("What are you feeling right now?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("HIDE FIRST AND WAIT TILL THINGS CALM DOWN", [35,200], self.scene13f_a, 1, player)
+                self.decision_menu("RUN AND ENTER FROM THE BACK DOOR",[35,240], self.scene13f_a, 1, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene13f_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene15z(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene15z(self, count, player):
+        bg = background("images/backgrounds/stairs day.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                bg = background("images/backgrounds/stairs day.png")
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Tomiichi")
+                instruction = textbox("Kimiko, I have to talk to you about something.")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("What is it, dad?")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Tomiichi")
+                instruction = textbox("I’m sure you know that you’re not supposed to leave this house.")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Kimiko")
+                instruction = textbox("Yeah, dad. It has been like this the past 10 years. How could I forget?")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Tomiichi")
+                instruction = textbox("You’re lying to me!! I know what you did. You left while I was on a business trip.")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                name = namebox("Kimiko")
+                instruction = textbox("What are you talking about, dad? I’ve been here this whole time.")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 6:
+                name = namebox("Tomiichi")
+                instruction = textbox("There’s no point in convincing me otherwise. I have all the proof I need. Since you have been misbehaving, you will receive the proper consequences.")
+                father = character("images/characters/Tomiichi/Tomiichi2_angry3.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 7:
+                self.screen.fill((0,0,0))
+            if count >= 8:
+                self.scene16z(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene16z(self, count, player):
+        bg = background("images/backgrounds/stairs night.png")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count == 0 or count >= 3:
+                bg = background("images/backgrounds/stairs night.png")
+                self.screen.blit(bg.image,bg.rect)
+            if count == 1 or count == 2:
+                bg = background("images/backgrounds/sala night_cliff.jpg")
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Uhh… What happened? I think I passed out. I remember dad getting mad at me though. Wait… The lighting seems different today. Let me take a look.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox("Oh my goodness! I don’t think I’m home anymore. Everything outside looks different. The house is on top of a cliff!")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Tomiichi")
+                instruction = textbox("You’re right, Kimiko. We are on top of a cliff. This is what you get for not listening to me.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Tomiichi")
+                instruction = textbox("I made it very clear ever since before that you were to not leave the house. This is the consequence for your actions. We now live isolated on a cliff. The reason why I did not allow you to leave the house is because you are dead. Ten years ago, the accident I told you about killed you, so I uploaded you to the company’s game server. All the people you see here are either players from the real world or characters of this world.")
+                father = character("images/characters/Tomiichi/Tomiichi3_smirk4.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                name = namebox("Kimiko")
+                instruction = textbox("WHAT?!")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 5:
+                self.scene17z(0, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene17z(self, count, player):
+        bg = background("images/backgrounds/sala night_cliff.jpg")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("I can’t believe this is happening. Nothing is real. My reality doesn’t seem to exist. I don’t know what to do anymore. I’m going to go mad.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count >= 1:
+                decision = decisionbox("What will you do?")
+                self.screen.blit(decision.image, decision.rect)
+                self.decision_menu("ACCEPT LIFE", [35,200], self.scene17z_a, 1, player)
+                if player.courage == 5 and player.endurance == 5:
+                    self.decision_menu("ESCAPE THIS LIFE",[35,240], self.scene17z_a, 2, player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene17z_a(self, count, player):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        pass
+            if count == 1:
+                self.scene20z(0,player)
+            elif count == 2:
+                self.scene20z2(0,player)
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene20z(self, count, player): #credit
+        bg = background("images/backgrounds/sala night_cliff.jpg")
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count >= 0:
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+            #character, namebox, textbox in order
+            if count == 0:
+                name = namebox("Kimiko")
+                instruction = textbox("Dad, I understand now. You only want what is best for me. And for us--as a family. You can take us back to where we are supposed to be. I’ll behave. I’ll be happy")
+                father = character("images/characters/Tomiichi/Tomiichi1_smirk5.png")
+                self.screen.blit(father.image, father.rect)
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 1:
+                self.screen.fill((0,0,0))
+            if count >= 2:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
+
+    def scene20z2(self, count, player): #credit
+        bg = background("images/backgrounds/room night_cliff.jpg") #tentative cliff
+        pygame.mixer.music.fadeout(1000)
+        #count = 0
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        count += 1
+            #backgrounds and sounds
+            if count == 1:
+                
+                self.screen.blit(bg.image,bg.rect)
+            if count == 2:
+                self.screen.fill((0,0,0))
+            if count >= 3:
+                self.screen.blit(bg.image,bg.rect)
+
+            self.button_menu("SAVE GAME", [50,600], self.save_game, bg, [inspect.getframeinfo(inspect.currentframe()).function, count, player])
+            self.button_menu("LOAD GAME", [225,600], self.load_game, bg)
+            new_player = self.button_menu("SHOP", [400,600], self.shop, bg, None, player)
+            self.button_menu("MAIN MENU", [575,600], self.main_screen)
+            self.button_menu("EXIT", [750,600], self.exit_game)
+            if inspect.isclass(new_player) == True:
+                player = new_player
+    
+            #character, namebox, textbox in order
+            if count == 0:
+                self.screen.fill((0,0,0))
+            if count == 1:
+                name = namebox("Kimiko")
+                instruction = textbox(" I can’t do this anymore. I want to be real. If this is unreal I don’t want any part of it, and maybe I shouldn’t be part of it. I’m going to put an end to all of this.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 2:
+                name = namebox("Kimiko")
+                instruction = textbox("How can I still be alive? Don’t tell me I’m immortal in this world… No! This can’t be. What should I do?! Hmm… Maybe I should go back to my monster excuse for a dad. I need him to take me out of this madness. I’m going to climb back up, no matter what it takes.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 3:
+                name = namebox("Kimiko")
+                instruction = textbox("I finally made it...  I better hurry in the house… WAIT!! Who is that? There’s someone in the house hugging dad. It’s… It’s… I can’t really see… Okay wait they’re turning around… It’s… Me.")
+                self.screen.blit(instruction.image, instruction.rect)
+                self.screen.blit(name.image, name.rect)
+            if count == 4:
+                self.credits()
+            pygame.display.update()
+            self.clock.tick(60)
 
     def load_game(self, background):
         load_game = True
@@ -2658,7 +5425,7 @@ class window(object):
             pygame.display.update()
             self.clock.tick(60)
 
-    def credits():
+    def credits(self):
         bg = background('assets/images/backgrounds/credits.jpg')
         while True:
             for event in pygame.event.get():
